@@ -1,8 +1,12 @@
 package test;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import dominio.Aerolinea;
+import dominio.exceptions.*;
 
 class TestAerolinea {
 
@@ -10,7 +14,7 @@ class TestAerolinea {
 	void testAerolinea_NombreBienFormado() {
 		try {
 			Aerolinea a1 = new Aerolinea(1, "Argentinas");
-			assertEquals(" ID: 1 - Nombre: Argentinas",a1.toString());
+			assertEquals("ID: 1 - Nombre: Argentinas",a1.toString());
 			
 		} catch (ExceptionGeneral e) {
 			fail("Esta linea no deberia correrse");
@@ -25,8 +29,8 @@ class TestAerolinea {
 		try {
 			Aerolinea a1 = new Aerolinea(1, "");
 			fail("Esta linea no deberia correrse");
-		} catch(ExceptionNombreMalFormado e) {
-			assertEquals("Error en el nombre", e.getMessage());
+		} catch(ExceptionNombreMalFormado ex) {
+			assertEquals("Error en el nombre", ex.getMessage());
 		} catch(ExceptionGeneral e) {
 			fail("Esta linea no deberia correrse");
 		} catch(Exception e) {
@@ -52,7 +56,7 @@ class TestAerolinea {
 			Aerolinea a1 = new Aerolinea(-1, "Argentinas");
 			fail("Esta linea no deberia correrse");
 		} catch (ExceptionIdMalFormado e) {
-			asserEquals("Error en el Id.", e.getMessage());
+			assertEquals("Error en el Id.", e.getMessage());
 		} catch (ExceptionGeneral e) {
 			fail("Esta linea no deberia correrse.");
 		} catch (Exception e) {

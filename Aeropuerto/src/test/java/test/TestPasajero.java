@@ -4,13 +4,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Pasajero;
+import dominio.exceptions.ExceptionApellidoMalFormado;
+import dominio.exceptions.ExceptionCuilMalFormado;
+import dominio.exceptions.ExceptionGeneral;
+import dominio.exceptions.ExceptionIdMalFormado;
+import dominio.exceptions.ExceptionNombreMalFormado;
+import dominio.exceptions.ExceptionTelefonoMalFormado;
+
 class TestPasajero {
 
 	@Test
 	void testPasajero_BienFormado() {
 		try {
 			Pasajero p1 = new Pasajero(1, "1234456", "lopez", "Javier", "03825123345");
-			asserEquals("ID: 1 - Apellido y Nombre: Lopez, Javier - Tel: 03825123345", p1.toString());
+			assertEquals("ID: 1 - Apellido y Nombre: Lopez, Javier - Tel: 03825123345", p1.toString());
 		} catch (ExceptionGeneral e) {
 			fail("Esta línea no deberia Correrse");
 		} catch (Exception e) {
@@ -76,7 +84,7 @@ class TestPasajero {
 			Pasajero p1 = new Pasajero(-1, "1234456", "lopez", "Javier", "03825123345");
 			fail("Esta linea no deberia correrse");
 		} catch (ExceptionIdMalFormado e) {
-			asserEquals("Error en el Id.", e.getMessage());
+			assertEquals("Error en el Id.", e.getMessage());
 		} catch (ExceptionGeneral e) {
 			fail("Esta linea no deberia correrse.");
 		} catch (Exception e) {
@@ -117,7 +125,7 @@ class TestPasajero {
 			fail("Esta linea no deberia correrse");
 			
 		} catch(ExceptionTelefonoMalFormado e) {
-			assertEquals("Error en  el telefono", e.getMessage());
+			assertEquals("Error en el telefono", e.getMessage());
 		} catch(ExceptionGeneral e) {
 			fail("Esta linea no deberia correrse");
 		} catch(Exception e) {
