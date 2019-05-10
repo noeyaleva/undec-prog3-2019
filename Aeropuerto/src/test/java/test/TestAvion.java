@@ -7,14 +7,27 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Aeropuerto;
+import dominio.Asiento;
+import dominio.Avion;
+import dominio.Ciudad;
+import dominio.exceptions.ExceptionGeneral;
+import dominio.exceptions.ExceptionIdMalFormado;
+import dominio.exceptions.ExceptionMatriculaMalFormado;
+import dominio.exceptions.ExceptionModeloMalFormado;
+
 class TestAvion {
 
 	@Test
 	void testAvion_BienFormado() {
 		try {
-			ArrayList<Asiento> misAsientos = new ArrayList<Asiento>(); 
+			Asiento asiento1 = new Asiento(1, "a1");
+			Asiento asiento2 = new Asiento(1, "a2");
+			ArrayList<Asiento> misAsientos = new ArrayList<Asiento>();
+			misAsientos.add(asiento1);
+			misAsientos.add(asiento2);
 			Avion a1 = new Avion(1, "modelo", "matricula", misAsientos);
-			assertEquals("ID: 1 - Modelo: Modelo - Matricula: Matricula - Asientos: A1, A2", a1.toString());
+			assertEquals("ID: 1 - Modelo: modelo - Matricula: matricula - Asientos: A1, A2", a1.toString());
 		} catch (ExceptionGeneral e) {
 			fail("Esta línea no deberia Correrse");
 		} catch (Exception e) {
@@ -43,7 +56,7 @@ class TestAvion {
 			Avion a1 = new Avion(1, null, "matricula", misAsientos);
 			fail("Esta linea no deberia correrse");
 		} catch(ExceptionModeloMalFormado e) {
-			assertEquals("Error en el apellido", e.getMessage());
+			assertEquals("Error en el modelo", e.getMessage());
 		} catch(ExceptionGeneral e) {
 			fail("Esta linea no deberia correrse");
 		} catch(Exception e) {
@@ -79,4 +92,18 @@ class TestAvion {
 		}
 	}
 
+	@Test
+	void testAvionIdMalFormado() {
+		try {
+			ArrayList<Asiento> misAsientos = new ArrayList<Asiento>(); 
+			Avion a1 = new Avion(-1, "modelo", "matricula", misAsientos);
+			fail("Esta linea no deberia correrse");
+		} catch (ExceptionIdMalFormado e) {
+			assertEquals("Error en el Id.", e.getMessage());
+		} catch (ExceptionGeneral e) {
+			fail("Esta linea no deberia correrse.");
+		} catch (Exception e) {
+			fail("Esta linea no deberia correrse.");
+		}
+	}
 }

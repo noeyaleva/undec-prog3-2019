@@ -4,6 +4,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import dominio.Asiento;
+import dominio.Asignacion;
+import dominio.Pasajero;
+import dominio.exceptions.ExceptionCodigoMalFormado;
+import dominio.exceptions.ExceptionGeneral;
+
 class TestAsignacion {
 
 	@Test
@@ -12,7 +18,7 @@ class TestAsignacion {
 			Pasajero p1 = new Pasajero(1, "1234456", "lopez", "Javier", "03825123345");
 			Asiento asiento = new Asiento(1, "A1");
 			Asignacion a1 = new Asignacion(p1, asiento, "codigo");
-			assertEquals("Id Pasajero: 1 - Asiento: A1 - Codigo: Codigo", a1.toString());
+			assertEquals("ID Pasajero: 1 - Asiento: A1 - Codigo: codigo", a1.toString());
 		} catch (ExceptionGeneral e) {
 			fail("Esta línea no deberia Correrse");
 		} catch (Exception e) {

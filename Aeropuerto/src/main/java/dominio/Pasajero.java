@@ -55,5 +55,7 @@ public class Pasajero {
 		return "ID: " + this.idPasajero + " - Apellido y Nombre: " + this.apellido + ", " + this.nombre + " - Tel: " + this.telefono;
 	}
 
-	
+	public int getIdPasajero() {
+		return this.idPasajero;
+	}
 }
