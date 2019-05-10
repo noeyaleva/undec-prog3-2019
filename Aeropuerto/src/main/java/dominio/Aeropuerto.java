@@ -41,6 +41,8 @@ public class Aeropuerto {
 		return "ID: " + this.idAeropuerto + " - Nombre: " + this.nombre + " - Ciudad: " + this.ciudad.toString() + " - Codigo: " + this.codigo; 
 	}
 	
-	
+	public String getNombre() {
+		return this.nombre;
+	}
 
 }

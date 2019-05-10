@@ -33,6 +33,8 @@ public class Aerolinea {
 		return "ID: " + this.IdAerolinea+ " - Nombre: " + this.nombre;
 	}
 	
-	
+	public String getNombre() {
+		return this.nombre;
+	}
 
 }

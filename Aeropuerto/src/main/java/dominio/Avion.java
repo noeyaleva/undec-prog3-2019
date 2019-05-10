@@ -15,7 +15,7 @@ public class Avion {
 	private String matricula;
 	private List<Asiento> listaAsientos;
 	
-	public Avion(int aIdAvion, String aModelo, String aMatricula, ArrayList<Asiento> aListaAsientos) throws ExceptionIdMalFormado, ExceptionModeloMalFormado, ExceptionMatriculaMalFormado {
+	public Avion(int aIdAvion, String aModelo, String aMatricula, List<Asiento> aListaAsientos) throws ExceptionIdMalFormado, ExceptionModeloMalFormado, ExceptionMatriculaMalFormado {
 	
 		if(aIdAvion < 1) {
 			throw new ExceptionIdMalFormado("Error en el Id.");
