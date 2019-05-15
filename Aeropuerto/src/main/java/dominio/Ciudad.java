@@ -38,6 +38,30 @@ public class Ciudad {
 		//"ID: 1 - Nombre: Nonogasta - Codigo Postal: 5372."
 		return "ID: " + this.idCiudad + " - Nombre: " + this.nombre + " - Codigo Postal: " + this.codigoPostal;
 	}
+
+	public int getIdCiudad() {
+		return idCiudad;
+	}
+
+	public void setIdCiudad(int idCiudad) {
+		this.idCiudad = idCiudad;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(String codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
 	
 	
 

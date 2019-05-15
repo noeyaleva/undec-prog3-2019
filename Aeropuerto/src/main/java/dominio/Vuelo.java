@@ -36,4 +36,77 @@ public class Vuelo {
 				+ " - Aerolinea: " + this.aerolinea.getNombre() + " - Pilotos: " + this.piloto.get(0).getIdPiloto() + " " + this.piloto.get(0).getApellido() + ", " + this.piloto.get(1).getIdPiloto() + " " + this.piloto.get(1).getApellido() + " - Cantidad Pasajeros: " + this.pasajeros.size();
 	}
 
+	public String getCodigoVuelo() {
+		return codigoVuelo;
+	}
+
+	public void setCodigoVuelo(String codigoVuelo) {
+		this.codigoVuelo = codigoVuelo;
+	}
+
+	public Aeropuerto getSalida() {
+		return salida;
+	}
+
+	public void setSalida(Aeropuerto salida) {
+		this.salida = salida;
+	}
+
+	public LocalDate getFechaHoraSalida() {
+		return fechaHoraSalida;
+	}
+
+	public void setFechaHoraSalida(LocalDate fechaHoraSalida) {
+		this.fechaHoraSalida = fechaHoraSalida;
+	}
+
+	public Aeropuerto getArribo() {
+		return arribo;
+	}
+
+	public void setArribo(Aeropuerto arribo) {
+		this.arribo = arribo;
+	}
+
+	public LocalDate getFechaHoraArribo() {
+		return fechaHoraArribo;
+	}
+
+	public void setFechaHoraArribo(LocalDate fechaHoraArribo) {
+		this.fechaHoraArribo = fechaHoraArribo;
+	}
+
+	public Aerolinea getAerolinea() {
+		return aerolinea;
+	}
+
+	public void setAerolinea(Aerolinea aerolinea) {
+		this.aerolinea = aerolinea;
+	}
+
+	public List<Piloto> getPiloto() {
+		return piloto;
+	}
+
+	public void setPiloto(List<Piloto> piloto) {
+		this.piloto = piloto;
+	}
+
+	public Avion getAvion() {
+		return avion;
+	}
+
+	public void setAvion(Avion avion) {
+		this.avion = avion;
+	}
+
+	public List<Asignacion> getPasajeros() {
+		return pasajeros;
+	}
+
+	public void setPasajeros(List<Asignacion> pasajeros) {
+		this.pasajeros = pasajeros;
+	}
+
+	
 }
