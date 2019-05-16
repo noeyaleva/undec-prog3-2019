@@ -108,5 +108,30 @@ public class Vuelo {
 		this.pasajeros = pasajeros;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigoVuelo == null) ? 0 : codigoVuelo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vuelo other = (Vuelo) obj;
+		if (codigoVuelo == null) {
+			if (other.codigoVuelo != null)
+				return false;
+		} else if (!codigoVuelo.equals(other.codigoVuelo))
+			return false;
+		return true;
+	}
+
 	
 }

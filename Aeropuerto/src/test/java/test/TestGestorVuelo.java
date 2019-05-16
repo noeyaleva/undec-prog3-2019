@@ -14,6 +14,7 @@ import dominio.Asiento;
 import dominio.Asignacion;
 import dominio.Avion;
 import dominio.Ciudad;
+import dominio.GestorVuelo;
 import dominio.Pasajero;
 import dominio.Piloto;
 import dominio.Vuelo;
@@ -32,12 +33,14 @@ class TestGestorVuelo {
 	
 	@Test
 	void testGestorVueloVacio() {
+		GestorVuelo.getInstancia().limpiarVuelos();
 		assertEquals(0,GestorVuelo.getInstancia().traerTodosVuelos().size());
 	}
 
 	@Test
 	void testGestorVueloCrear() {
 		try {
+			GestorVuelo.getInstancia().limpiarVuelos();
 			Ciudad ciudad = new Ciudad(1, "Nonogasta", "5372");
 			Ciudad ciudad1 = new Ciudad(1, "Cordoba", "5462");
 			
@@ -107,6 +110,7 @@ class TestGestorVuelo {
 	@Test
 	void testGestorVueloBorrar() {
 		try {
+			GestorVuelo.getInstancia().limpiarVuelos();
 			Ciudad ciudad = new Ciudad(1, "Nonogasta", "5372");
 			Ciudad ciudad1 = new Ciudad(1, "Cordoba", "5462");
 			
@@ -193,6 +197,7 @@ class TestGestorVuelo {
 	@Test
 	void testGestorModificarVuelo() {
 		try {
+			GestorVuelo.getInstancia().limpiarVuelos();
 			Ciudad ciudad = new Ciudad(1, "Nonogasta", "5372");
 			Ciudad ciudad1 = new Ciudad(1, "Cordoba", "5462");
 			
@@ -266,7 +271,9 @@ class TestGestorVuelo {
 			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo.getCodigoVuelo(), vuelo.getSalida(), vuelo.getFechaHoraSalida(), vuelo.getArribo(), vuelo.getFechaHoraArribo(), vuelo.getAerolinea(), vuelo.getPiloto(), vuelo.getAvion(), vuelo.getPasajeros()));
 			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1.getCodigoVuelo(), vuelo1.getSalida(), vuelo1.getFechaHoraSalida(), vuelo1.getArribo(), vuelo1.getFechaHoraArribo(), vuelo1.getAerolinea(), vuelo1.getPiloto(), vuelo1.getAvion(), vuelo1.getPasajeros()));
 			assertEquals(2,GestorVuelo.getInstancia().traerTodosVuelos().size());
-			assertEquals(true, GestorVuelo.getInstancia().modificarVuelo(vuelo, fechaSalidaModificada));
+			assertEquals(false, vuelo.getFechaHoraSalida() == GestorVuelo.getInstancia().modificarVuelo(vuelo, fechaSalidaModificada).getFechaHoraSalida());
+			vuelo.setFechaHoraSalida(fechaSalidaModificada);
+			assertEquals(true, vuelo.getFechaHoraSalida() == GestorVuelo.getInstancia().modificarVuelo(vuelo, fechaSalidaModificada).getFechaHoraSalida());
 			assertEquals(2,GestorVuelo.getInstancia().traerTodosVuelos().size());
 			assertEquals("Vuelo: CodVuelo - Lugar Salida: Exeiza - FechaSalida: 1990-03-03 - Lugar Llegada: Cordoba - FechaArribo: 1990-03-02 - Aerolinea: Argentinas - Pilotos: 1 Nader, 2 Herrera - Cantidad Pasajeros: 4",vuelo.toString());
 			
@@ -282,6 +289,7 @@ class TestGestorVuelo {
 	@Test
 	void testGestorVueloPorCriterio() {
 		try {
+			GestorVuelo.getInstancia().limpiarVuelos();
 			Ciudad ciudad = new Ciudad(1, "Nonogasta", "5372");
 			Ciudad ciudad1 = new Ciudad(1, "Cordoba", "5462");
 			
@@ -348,14 +356,12 @@ class TestGestorVuelo {
 							
 			Avion avion1 = new Avion(1001, "modelo", "matricula", misAsientos);
 			
-			LocalDate fechaSalidaModificada = LocalDate.of(1990,3,3);
-			
 			Vuelo vuelo1 = new Vuelo("CodVuelo1", salida, fechaSalida, arribo, fechaArribo, aerolinea, pilotos2, avion1, pasajeros);
 			
 			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo.getCodigoVuelo(), vuelo.getSalida(), vuelo.getFechaHoraSalida(), vuelo.getArribo(), vuelo.getFechaHoraArribo(), vuelo.getAerolinea(), vuelo.getPiloto(), vuelo.getAvion(), vuelo.getPasajeros()));
 			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1.getCodigoVuelo(), vuelo1.getSalida(), vuelo1.getFechaHoraSalida(), vuelo1.getArribo(), vuelo1.getFechaHoraArribo(), vuelo1.getAerolinea(), vuelo1.getPiloto(), vuelo1.getAvion(), vuelo1.getPasajeros()));
-			assertEquals(true,vuelo.equals(GestorVuelo.getInstancia().traerVueloPorCriterip("CodVuelo")));
-			assertEquals("Vuelo: CodVuelo - Lugar Salida: Exeiza - FechaSalida: 1990-03-03 - Lugar Llegada: Cordoba - FechaArribo: 1990-03-02 - Aerolinea: Argentinas - Pilotos: 1 Nader, 2 Herrera - Cantidad Pasajeros: 4",vuelo.toString());
+			assertEquals(true,vuelo.equals(GestorVuelo.getInstancia().traerVueloPorCriterip(aerolinea)));
+			assertEquals("Vuelo: CodVuelo - Lugar Salida: Exeiza - FechaSalida: 1990-03-01 - Lugar Llegada: Cordoba - FechaArribo: 1990-03-02 - Aerolinea: Argentinas - Pilotos: 1 Nader, 2 Herrera - Cantidad Pasajeros: 4",vuelo.toString());
 			
 		} catch (ExceptionGeneral ex) {
 			fail("Esta linea no deberia correrse");

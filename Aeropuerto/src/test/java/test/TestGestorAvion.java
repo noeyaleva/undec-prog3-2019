@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import dominio.Asiento;
 import dominio.Avion;
+import dominio.GestorAvion;
 import dominio.exceptions.ExceptionGeneral;
 
 class TestGestorAvion {
@@ -24,6 +25,7 @@ class TestGestorAvion {
 	@Test
 	void testGestorCrearAvion() {
 		try {
+			GestorAvion.getInstancia().limpiarAviones();
 			Asiento asiento1 = new Asiento(1, "a1");
 			Asiento asiento2 = new Asiento(2, "a2");
 			Asiento asiento3 = new Asiento(3, "a3");
@@ -55,6 +57,7 @@ class TestGestorAvion {
 	@Test
 	void testGestorAvionBorrar() {
 		try {
+			GestorAvion.getInstancia().limpiarAviones();
 			Asiento asiento1 = new Asiento(1, "a1");
 			Asiento asiento2 = new Asiento(2, "a2");
 			Asiento asiento3 = new Asiento(3, "a3");
@@ -80,7 +83,7 @@ class TestGestorAvion {
 			assertEquals(true, GestorAvion.getInstancia().crearAvion(avion1.getIdAvion(), avion1.getModelo(), avion1.getMatricula(), avion1.getListaAsientos()));
 			assertEquals(false, avion1.equals(GestorAvion.getInstancia().traerUno(avion.getIdAvion())));
 			assertEquals(2,GestorAvion.getInstancia().traerTodosAviones().size());
-			assertEquals(true, GestorVuelo.getInstancia().BorrarAvion(avion1));
+			assertEquals(true, GestorAvion.getInstancia().BorrarAvion(avion1));
 			assertEquals(1,GestorAvion.getInstancia().traerTodosAviones().size());
 
 		} catch(ExceptionGeneral e) {
@@ -93,6 +96,7 @@ class TestGestorAvion {
 	@Test
 	void testGestorAvionModificar() {
 		try {
+			GestorAvion.getInstancia().limpiarAviones();
 			Asiento asiento1 = new Asiento(1, "a1");
 			Asiento asiento2 = new Asiento(2, "a2");
 			Asiento asiento3 = new Asiento(3, "a3");
@@ -114,11 +118,13 @@ class TestGestorAvion {
 			
 			Avion avion = new Avion(1, "modelo", "matricula", misAsientos);
 			Avion avion1 = new Avion(2, "kj", "123mk", misAsientos2);
+			
 			assertEquals(true, GestorAvion.getInstancia().crearAvion(avion.getIdAvion(), avion.getModelo(), avion.getMatricula(), avion.getListaAsientos()));
 			assertEquals(true, GestorAvion.getInstancia().crearAvion(avion1.getIdAvion(), avion1.getModelo(), avion1.getMatricula(), avion1.getListaAsientos()));
 			assertEquals(false, avion1.equals(GestorAvion.getInstancia().traerUno(avion.getIdAvion())));
 			assertEquals(2,GestorAvion.getInstancia().traerTodosAviones().size());
-			assertEquals(true, GestorVuelo.getInstancia().ModificarAvion(avion1, "matriculaNueva"));
+			avion1.setMatricula("matriculaNueva");
+			assertEquals(true, avion1.equals(GestorAvion.getInstancia().ModificarAvion(avion1, "matriculaNueva")));
 			assertEquals(2,GestorAvion.getInstancia().traerTodosAviones().size());
 
 		} catch(ExceptionGeneral e) {
@@ -131,6 +137,7 @@ class TestGestorAvion {
 	@Test
 	void testGestorAvionPorCriterio() {
 		try {
+			GestorAvion.getInstancia().limpiarAviones();
 			Asiento asiento1 = new Asiento(1, "a1");
 			Asiento asiento2 = new Asiento(2, "a2");
 			Asiento asiento3 = new Asiento(3, "a3");
@@ -147,17 +154,18 @@ class TestGestorAvion {
 			misAsientos.add(asiento4);
 			misAsientos2.add(asiento5);
 			misAsientos2.add(asiento6);
-			misAsientos2.add(asiento7);
+			misAsientos2.add(asiento7); 
 			misAsientos2.add(asiento8);
 			
 			Avion avion = new Avion(1, "modelo", "matricula", misAsientos);
 			Avion avion1 = new Avion(2, "kj", "123mk", misAsientos2);
 			assertEquals(true, GestorAvion.getInstancia().crearAvion(avion.getIdAvion(), avion.getModelo(), avion.getMatricula(), avion.getListaAsientos()));
 			assertEquals(true, GestorAvion.getInstancia().crearAvion(avion1.getIdAvion(), avion1.getModelo(), avion1.getMatricula(), avion1.getListaAsientos()));
-			assertEquals(false, avion1.equals(GestorAvion.getInstancia().traerUno(avion1.getModelo())));
-			assertEquals(true,avion.equals(GestorAvion.getInstancia().traerUnAvion(avion)));
+			assertEquals(false, avion.equals(GestorAvion.getInstancia().traerUno(avion1.getIdAvion())));
+			assertEquals(true,avion.equals(GestorAvion.getInstancia().traerUno(avion.getIdAvion())));
+			assertEquals(true,avion.equals(GestorAvion.getInstancia().traerPorCriterio(avion.getModelo())));
+			assertEquals(false,avion1.equals(GestorAvion.getInstancia().traerPorCriterio(avion.getModelo())));
 			
-
 		} catch(ExceptionGeneral e) {
 			fail("Esta linea no deberia correrse");
 		} catch(Exception e) {
