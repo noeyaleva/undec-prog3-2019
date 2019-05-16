@@ -54,6 +54,39 @@ public class Avion {
 		}
 		return cadena.substring(0,cadena.length()-2);
 	}
+
+	public int getIdAvion() {
+		return idAvion;
+	}
+
+	public void setIdAvion(int idAvion) {
+		this.idAvion = idAvion;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public List<Asiento> getListaAsientos() {
+		return listaAsientos;
+	}
+
+	public void setListaAsientos(List<Asiento> listaAsientos) {
+		this.listaAsientos = listaAsientos;
+	}
+	
 	
 
 }

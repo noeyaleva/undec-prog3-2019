@@ -22,7 +22,7 @@ import dominio.exceptions.ExceptionGeneral;
 class TestGestorVuelo {
 
 	@Test
-	void t1_testGestorContacto_Singleton() {
+	void testGestorVueloSingleton() {
 		GestorVuelo gVuelo1 = GestorVuelo.getInstancia();
 		GestorVuelo gVuelo2 = GestorVuelo.getInstancia();
 		
@@ -87,9 +87,11 @@ class TestGestorVuelo {
 			pasajeros.add(asignacion4);
 			
 			Vuelo vuelo = new Vuelo("CodVuelo", salida, fechaSalida, arribo, fechaArribo, aerolinea, pilotos, avion, pasajeros);
-			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo));
+			
+			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo.getCodigoVuelo(), vuelo.getSalida(), vuelo.getFechaHoraSalida(), vuelo.getArribo(), vuelo.getFechaHoraArribo(), vuelo.getAerolinea(), vuelo.getPiloto(), vuelo.getAvion(), vuelo.getPasajeros()));
 			assertEquals(1,GestorVuelo.getInstancia().traerTodosVuelos().size());
-			assertEquals(vuelo,GestorVuelo.getInstancia().traerUnVuelo(vuelo));
+			Vuelo vuelo1 = GestorVuelo.getInstancia().traerUnVuelo("CodVuelo");
+			assertEquals(true, vuelo.equals(vuelo1));
 			
 		} catch (ExceptionGeneral ex) {
 			fail("Esta linea no deberia correrse");
@@ -173,8 +175,8 @@ class TestGestorVuelo {
 			
 			Vuelo vuelo1 = new Vuelo("CodVuelo1", salida, fechaSalida, arribo, fechaArribo, aerolinea, pilotos2, avion1, pasajeros);
 			
-			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo));
-			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1));
+			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo.getCodigoVuelo(), vuelo.getSalida(), vuelo.getFechaHoraSalida(), vuelo.getArribo(), vuelo.getFechaHoraArribo(), vuelo.getAerolinea(), vuelo.getPiloto(), vuelo.getAvion(), vuelo.getPasajeros()));
+			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1.getCodigoVuelo(), vuelo1.getSalida(), vuelo1.getFechaHoraSalida(), vuelo1.getArribo(), vuelo1.getFechaHoraArribo(), vuelo1.getAerolinea(), vuelo1.getPiloto(), vuelo1.getAvion(), vuelo1.getPasajeros()));
 			assertEquals(2,GestorVuelo.getInstancia().traerTodosVuelos().size());
 			assertEquals(true, GestorVuelo.getInstancia().BorrarVuelo(vuelo));
 			assertEquals(1,GestorVuelo.getInstancia().traerTodosVuelos().size());
@@ -261,8 +263,8 @@ class TestGestorVuelo {
 			
 			Vuelo vuelo1 = new Vuelo("CodVuelo1", salida, fechaSalida, arribo, fechaArribo, aerolinea, pilotos2, avion1, pasajeros);
 			
-			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo));
-			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1));
+			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo.getCodigoVuelo(), vuelo.getSalida(), vuelo.getFechaHoraSalida(), vuelo.getArribo(), vuelo.getFechaHoraArribo(), vuelo.getAerolinea(), vuelo.getPiloto(), vuelo.getAvion(), vuelo.getPasajeros()));
+			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1.getCodigoVuelo(), vuelo1.getSalida(), vuelo1.getFechaHoraSalida(), vuelo1.getArribo(), vuelo1.getFechaHoraArribo(), vuelo1.getAerolinea(), vuelo1.getPiloto(), vuelo1.getAvion(), vuelo1.getPasajeros()));
 			assertEquals(2,GestorVuelo.getInstancia().traerTodosVuelos().size());
 			assertEquals(true, GestorVuelo.getInstancia().modificarVuelo(vuelo, fechaSalidaModificada));
 			assertEquals(2,GestorVuelo.getInstancia().traerTodosVuelos().size());
@@ -350,8 +352,8 @@ class TestGestorVuelo {
 			
 			Vuelo vuelo1 = new Vuelo("CodVuelo1", salida, fechaSalida, arribo, fechaArribo, aerolinea, pilotos2, avion1, pasajeros);
 			
-			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo));
-			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1));
+			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo.getCodigoVuelo(), vuelo.getSalida(), vuelo.getFechaHoraSalida(), vuelo.getArribo(), vuelo.getFechaHoraArribo(), vuelo.getAerolinea(), vuelo.getPiloto(), vuelo.getAvion(), vuelo.getPasajeros()));
+			assertEquals(true, GestorVuelo.getInstancia().crearVuelo(vuelo1.getCodigoVuelo(), vuelo1.getSalida(), vuelo1.getFechaHoraSalida(), vuelo1.getArribo(), vuelo1.getFechaHoraArribo(), vuelo1.getAerolinea(), vuelo1.getPiloto(), vuelo1.getAvion(), vuelo1.getPasajeros()));
 			assertEquals(true,vuelo.equals(GestorVuelo.getInstancia().traerVueloPorCriterip("CodVuelo")));
 			assertEquals("Vuelo: CodVuelo - Lugar Salida: Exeiza - FechaSalida: 1990-03-03 - Lugar Llegada: Cordoba - FechaArribo: 1990-03-02 - Aerolinea: Argentinas - Pilotos: 1 Nader, 2 Herrera - Cantidad Pasajeros: 4",vuelo.toString());
 			
