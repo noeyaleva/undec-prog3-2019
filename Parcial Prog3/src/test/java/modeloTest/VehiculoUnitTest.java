@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import excepciones.VehiculoIncompletoException;
-import modelo.Service;
 import modelo.Vehiculo;
 
 class VehiculoUnitTest {
