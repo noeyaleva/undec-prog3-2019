@@ -1,7 +1,11 @@
 package InteractorUnitTest;
 
+import Exceptions.JugadorExisteException;
+import Exceptions.JugadorIncompletoException;
+import Interactor.CrearJugadorUseCase;
 import Mockito.MockitoExtension;
 import Model.Jugador;
+import Repositorio.IRepositorioCrearJugador;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

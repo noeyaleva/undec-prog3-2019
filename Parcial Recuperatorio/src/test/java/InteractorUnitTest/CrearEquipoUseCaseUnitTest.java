@@ -1,8 +1,12 @@
 package InteractorUnitTest;
 
+import Exceptions.EquipoExisteException;
+import Exceptions.EquipoIncompletoException;
+import Interactor.CrearEquipoUseCase;
 import Mockito.MockitoExtension;
 import Model.Equipo;
 import Model.Jugador;
+import Repositorio.IRepositorioCrearEquipo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

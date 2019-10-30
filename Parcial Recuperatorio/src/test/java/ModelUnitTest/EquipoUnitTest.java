@@ -1,5 +1,6 @@
 package ModelUnitTest;
 
+import Exceptions.EquipoIncompletoException;
 import Model.Equipo;
 import Model.Jugador;
 import org.junit.jupiter.api.Assertions;

@@ -1,6 +1,7 @@
 package Interactor;
 
 import Model.Equipo;
+import Repositorio.IRepositorioObtenerEquipo;
 
 public class ObtenerPromedioEdadEquipoUseCase {
     private IRepositorioObtenerEquipo iRepositorioObtenerEquipo;
