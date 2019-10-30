@@ -51,22 +51,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ObtenerPromedioEstaturaEquipoUseCaseUnitTest">
-    <configuration name="AsignarJugadorUseCaseUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="equipos" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="InteractorUnitTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="InteractorUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="InteractorUnitTest.AsignarJugadorUseCaseUnitTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.CrearEquipoUseCaseUnitTest">
     <configuration name="CrearEquipoUseCaseUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="equipos" />
       <extension name="coverage">
@@ -77,6 +62,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="InteractorUnitTest" />
       <option name="MAIN_CLASS_NAME" value="InteractorUnitTest.CrearEquipoUseCaseUnitTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EquipoUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="equipos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ModelUnitTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ModelUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="ModelUnitTest.EquipoUnitTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -112,7 +112,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObtenerPromedioEstaturaEquipoUseCaseUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ObtenerPromedioEdadEquipoUseCaseUnitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="equipos" />
       <extension name="coverage">
         <pattern>
@@ -121,7 +121,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="InteractorUnitTest" />
-      <option name="MAIN_CLASS_NAME" value="InteractorUnitTest.ObtenerPromedioEstaturaEquipoUseCaseUnitTest" />
+      <option name="MAIN_CLASS_NAME" value="InteractorUnitTest.ObtenerPromedioEdadEquipoUseCaseUnitTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ObtenerPromedioEstaturaEquipoUseCaseUnitTest" />
         <item itemvalue="JUnit.CrearEquipoUseCaseUnitTest" />
-        <item itemvalue="JUnit.AsignarJugadorUseCaseUnitTest" />
+        <item itemvalue="JUnit.ObtenerPromedioEdadEquipoUseCaseUnitTest" />
         <item itemvalue="JUnit.ModificarJugadorUseCaseUnitTest" />
         <item itemvalue="JUnit.JugadorUnitTest" />
+        <item itemvalue="JUnit.EquipoUnitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +147,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572470906510</updated>
-      <workItem from="1572470914312" duration="5623000" />
+      <workItem from="1572470914312" duration="6442000" />
     </task>
     <servers />
   </component>
