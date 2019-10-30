@@ -1,0 +1,7 @@
+Paquete para los test de interactores
+- Crear Jugador: Unicidad por Documento
+- Crear Equipo: Unicidad por Nombre
+- Modificar Jugador: Mantiene las restricciones para creacion
+- Asignar Jugador a Equipo: No se puede asignar dos veces el mismo jugador
+- Obtener promedio Edad Equipo
+- Obtener promedio Estatura Equipo
